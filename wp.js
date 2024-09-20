@@ -12,7 +12,10 @@ export const options = {
         loadimpact: {
             name: 'Random WordPress requests',
             note: 'Fetch all WordPress sitemaps and request random URLs.',
-            projectID: __ENV.PROJECT_ID || null
+            projectID: __ENV.PROJECT_ID || null,
+            distribution: {
+                distributionLabel1: { loadZone: 'amazon:de:frankfurt', percent: 100 },
+              },
         },
     },
 }

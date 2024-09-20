@@ -1,6 +1,7 @@
 # k6
 
-We use these scripts to benchmark Object Cache Pro and Relay with various hosting partners.
+Original repo: https://github.com/cachewerk/k6 
+
 
 ## Setup
 
@@ -9,6 +10,21 @@ Make sure [k6 is installed](https://k6.io/docs/getting-started/installation/).
 All tests can be run locally using `k6 run` or in the cloud using `k6 cloud`. 
 
 When Object Cache Pro is installed, custom metrics for [WordPress, Redis and Relay](lib/metrics.js) are automatically collected. 
+
+## Bulkbench
+The bulkbench script is a script to simplify running multiple tests in a row. It will run the specified test with 10, 25 and 50 virtual users, and output the results to a file in the `results` directory.
+
+To use the bulkbench script, you need to provide the following command line arguments:
+
+- `-d <site_url>`: The URL of the site you want to test.
+- `-n <num_runs>`: The number of times you want to run each test. This is useful if you want to make changes after each run and see how they affect the results.
+- `-t <k6_testfile>`: The path to the k6 test file.
+
+Here's an example of how to use the bulkbench script:
+
+```
+./bulkbench.sh -d https://example.com -n 5 -t tests/my_test.js
+```
 
 ## Tests
 
